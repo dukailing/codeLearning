@@ -1,0 +1,6 @@
+Learning
+ 
+在 To Sum中在for循环外可用抛出异常方法，也可return null
+throw new IllegalArgumentException("No two sum solution");
+return null;
+使用最原始嵌套for循环空间复杂度O(n²),空间复杂度O(n)
