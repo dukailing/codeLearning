@@ -1,6 +1,32 @@
 Learning
- 
+P1
 在 To Sum中在for循环外可用抛出异常方法，也可return null
 throw new IllegalArgumentException("No two sum solution");
 return null;
 使用最原始嵌套for循环空间复杂度O(n²),空间复杂度O(n)
+
+
+P3	
+Longest Substring Without Repeating Characters 问题
+解决方法：
+当 下一个未重复则加入set并j++;当出现重复，则删除set中i位置后++，最终返回j-i
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        Set<Character> set = new HashSet<>();
+        int ans = 0, i = 0, j = 0;
+        while (i < n && j < n) {
+            // try to extend the range [i, j]
+            if (!set.contains(s.charAt(j))){
+                set.add(s.charAt(j++));
+                ans = Math.max(ans, j - i);
+            }
+            else {
+                set.remove(s.charAt(i++));
+            }
+        }
+        return ans;
+    }
+}
+注意 ：String有.length()方法
+      Set中有contains()方法；charAt()方法，从0开始
