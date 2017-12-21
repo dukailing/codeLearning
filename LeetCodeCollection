@@ -4,8 +4,29 @@ P1
 throw new IllegalArgumentException("No two sum solution");
 return null;
 使用最原始嵌套for循环空间复杂度O(n²),空间复杂度O(n)
-
-
+方法二：
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+        int complement = target - nums[i];
+        if (map.containsKey(complement)) {
+            return new int[] { map.get(complement), i };
+        }
+        map.put(nums[i], i);
+    }
+    throw new IllegalArgumentException("No two sum solution");
+}
+}
+注意 ：数组有.length方法
+      map中两个属性均有类型；
+      map有方法containsKey(key)方法，查看是否有该key键;
+      map中有get(key)方法，得到该key键的值;
+      map中有put(key,value)方法;
+      
+      
+      
+      
 P3	
 Longest Substring Without Repeating Characters 问题
 解决方法：
