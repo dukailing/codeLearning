@@ -51,3 +51,25 @@ public class Solution {
 }
 注意 ：String有.length()方法
       Set中有contains()方法；charAt()方法，从0开始
+
+java中的ListNode链表
+新建：ListNode dummyHead = new ListNode(0);
+属性：.val;.next;
+
+
+P9 Palindrome Number判断是否为回文数字
+class Solution {
+    public boolean isPalindrome(int x) {
+    //若为负数或整10数返回false
+        if(x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+        //定义回文后数字
+       int reversedNumber = 0;
+        while(x > reversedNumber) {
+            reversedNumber = reversedNumber * 10 + x % 10;
+            x /= 10;
+        }
+        return x == reversedNumber || x == reversedNumber/10;
+    }
+}
