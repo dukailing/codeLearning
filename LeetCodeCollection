@@ -103,3 +103,31 @@ class Solution {
         return j+1 ;
     }
 }
+P27 Remove Element删除想删除的值的所有元素
+方法 一：若出现要删除的值则将数组最后一个元素放在这个位置，数组长度变量减1
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int i = 0;
+        int n = nums.length;
+        while(i < n){
+            if(nums[i] == val){
+                nums[i] = nums[n-1];
+                n--;
+            }else{
+                i++;
+            }
+        }
+        return n;
+    }
+}
+方法 二：遍历所有元素，只要不相等，就把当前值覆盖放入到数组中，相等则不放
+public int removeElement(int[] nums, int val) {
+    int i = 0;
+    for (int j = 0; j < nums.length; j++) {
+        if (nums[j] != val) {
+            nums[i] = nums[j];
+            i++;
+        }
+    }
+    return i;
+}
